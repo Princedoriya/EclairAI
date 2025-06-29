@@ -2,6 +2,9 @@
 
 Built with Next.js 15 App Router, Clerk for Auth, React, OpenAI GPT-4, Langchain, ShadCN UI components, Tailwind CSS 4, NeonDB, Upload Thing, Stripe for payments, TypeScript, TailwindCSS and more.
 
+! [Project Image](https://www.eclairai.vercel.app/opengraph-image.png)
+
+
 ## ⚡ Features
 
 ### 🛠️ Core Technologies:
