@@ -31,10 +31,10 @@ export const pricingPlans = [
     ],
     paymentLink: isDev
       ? 'https://buy.stripe.com/test_28EdR9ace2gx2VbaMx4c801'
-      : '',
+      : 'https://buy.stripe.com/test_00w9AT98adZfeDT7Al4c802',
     priceId: isDev
-      ? 'price_1RYAAvGax1jv4fZdQCAymID0'
-      : 'price_1RYAAvGax1jv4fZdQCAymID0',
+      ? 'price_1RfLrKGax1jv4fZdhebP9Z2D'
+      : 'price_1RfLrKGax1jv4fZdhebP9Z2D',
   },
 ];
 

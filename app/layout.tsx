@@ -7,6 +7,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import React from "react";
 import { ToastContainer } from 'react-toastify'
 import { toast  } from "react-toastify";
+import { ORIGIN_URL } from "@/utils/helpers";
 
 const fontSans = FontSans({
   variable: "--font-sans",
@@ -19,6 +20,18 @@ export const metadata: Metadata = {
   title: "EclairAI - AI-Powered PDF Summarization",
   description: 
   "Save hours of reading time. Transform lengthy PDFs into clear, accurate summaries in seconds with our advanced AI technology. ",
+
+  openGraph: {
+    images: [
+      {
+        url: '/opengraph-image.png',
+      },
+    ],
+  },
+  metadataBase: new URL(ORIGIN_URL),
+  alternates: {
+    canonical: ORIGIN_URL,
+  }
 };
 
 export default function RootLayout({
