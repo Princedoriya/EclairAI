@@ -1,10 +1,32 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import BgGradient from "@/components/common/bg-gradient";
+import CTASection from "@/components/home/cta-section";
+import DemoSection from "@/components/home/demo-section";
+import HeroSection from "@/components/home/hero-section";
+import HowItWorksSection from "@/components/home/how-it-works";
+import PricingSection from "@/components/home/pricing-section";
+import { hasReachedUploadLimit } from "@/lib/user";
+import { currentUser } from "@clerk/nextjs/server";
 
-export default function Home() {
+export default async function Home() {
+  const user = await currentUser();
+  let hasReachedLimit = false;
+
+  if (user && user.emailAddresses.length > 0) {
+    const email = user.emailAddresses[0].emailAddress;
+    const result = await hasReachedUploadLimit(email);
+    hasReachedLimit = result.hasReachedLimit;
+  }
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-(family-name:--font-geist-sans)">
-      <Button variant="outline" size={'lg'}> Shadcn button</Button>
+    <div className="relative w-full">
+      <BgGradient />
+      <div className="flex flex-col">
+        <HeroSection hasReachedLimit={hasReachedLimit} />
+        <DemoSection />
+        <HowItWorksSection />
+        <PricingSection />
+        <CTASection hasReachedLimit={hasReachedLimit} />
+      </div>
     </div>
   );
 }
